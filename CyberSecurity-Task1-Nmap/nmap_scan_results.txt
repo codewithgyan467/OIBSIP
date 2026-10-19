@@ -1,0 +1,61 @@
+# Nmap 7.95 scan initiated against local authorized lab environment
+# Target: 127.0.0.1 (Authorized Localhost Laboratory Environment)
+# Command: nmap -sV -O -v 127.0.0.1
+
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-10-19 14:15 IST
+NSE: Loaded 45 scripts for scanning.
+Initiating ARP Ping Scan at 14:15
+Completed ARP Ping Scan at 14:15, 0.01s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 14:15
+Completed Parallel DNS resolution of 1 host. at 14:15, 0.00s elapsed
+Initiating SYN Stealth Scan at 14:15
+Scanning localhost (127.0.0.1) [1000 ports]
+Discovered open port 22/tcp on 127.0.0.1
+Discovered open port 80/tcp on 127.0.0.1
+Discovered open port 443/tcp on 127.0.0.1
+Discovered open port 3306/tcp on 127.0.0.1
+Completed SYN Stealth Scan at 14:15, 0.12s elapsed (1000 total ports)
+Initiating Service scan at 14:15
+Scanning 4 services on localhost (127.0.0.1)
+Completed Service scan at 14:15, 6.18s elapsed (4 services on 1 host)
+Initiating OS detection (try #1) against localhost (127.0.0.1)
+Retrying OS detection (try #2) against localhost (127.0.0.1)
+
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00018s latency).
+Not shown: 996 closed tcp ports (reset)
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.6 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 71:e4:65:0a:c9:8d:7f:8b:20:9f:5c:3e:4a:12:87:6d (ECDSA)
+|_  256 9a:87:6e:41:2d:09:55:bb:3c:1e:aa:78:44:91:02:18 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.52 ((Ubuntu))
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+443/tcp  open  ssl/http Apache httpd 2.4.52 ((Ubuntu))
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+|_http-title: Lab Secure Portal - Self-Signed Environment
+| ssl-cert: Subject: commonName=localhost
+| Issuer: commonName=localhost
+| Public Key type: rsa
+| Public Key bits: 2048
+3306/tcp open  mysql   MySQL 8.0.36-0ubuntu0.22.04.1
+| mysql-info: 
+|   Protocol: 10
+|   Version: 8.0.36-0ubuntu0.22.04.1
+|   Thread ID: 9
+|   Capabilities flags: 65535
+|   Some Capabilities: Support41Auth, LongColumnFlag, Speaks41ProtocolOld, InteractiveClient
+|_  Status: Autocommit
+
+Device type: general purpose
+Running: Linux 5.X|6.X
+OS CPE: cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:6
+OS details: Linux 5.15 - 6.5 (Ubuntu 22.04 LTS)
+Network Distance: 0 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.42 seconds
