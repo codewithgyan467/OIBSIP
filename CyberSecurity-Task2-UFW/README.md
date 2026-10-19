@@ -109,34 +109,30 @@ sudo dmesg | grep -i "[UFW BLOCK]"
 ## 8. Results
 The script [`ufw_configuration.sh`](ufw_configuration.sh) applied all required rules without error.
 
-### Representative UFW Status Output
+### Live UFW Numbered Status Output
 ```text
+=== UFW Numbered Rule List ===
 Status: active
-Logging: on (low)
-Default: deny (incoming), allow (outgoing), disabled (routed)
-New profiles: skip
 
-To                         Action      From
---                         ------      ----
-22/tcp                     ALLOW IN    Anywhere                   # Allow incoming SSH management
-80/tcp                     DENY IN     Anywhere                   # Deny incoming unencrypted HTTP
-443/tcp                    ALLOW IN    Anywhere                   # Allow incoming secure HTTPS
-22/tcp                     LIMIT IN    Anywhere                   # Rate-limit SSH connections (mitigate brute-force)
-Anywhere on lo             ALLOW IN    Anywhere                   # Allow all loopback traffic
-22/tcp (v6)                ALLOW IN    Anywhere (v6)              # Allow incoming SSH management
-80/tcp (v6)                DENY IN     Anywhere (v6)              # Deny incoming unencrypted HTTP
-443/tcp (v6)               ALLOW IN    Anywhere (v6)              # Allow incoming secure HTTPS
-22/tcp (v6)                LIMIT IN    Anywhere (v6)              # Rate-limit SSH connections (mitigate brute-force)
-Anywhere (v6) on lo        ALLOW IN    Anywhere (v6)              # Allow all loopback traffic
+     To                         Action      From
+     --                         ------      ----
+[ 1] 22/tcp                     LIMIT IN    Anywhere                   # Rate-limit SSH connections (mitigate brute-force)
+[ 2] 80/tcp                     DENY IN     Anywhere                   # Deny incoming unencrypted HTTP
+[ 3] 443/tcp                    ALLOW IN    Anywhere                   # Allow incoming secure HTTPS
+[ 4] Anywhere on lo             ALLOW IN    Anywhere                   # Allow all loopback traffic
+[ 5] 22/tcp (v6)                LIMIT IN    Anywhere (v6)              # Rate-limit SSH connections (mitigate brute-force)
+[ 6] 80/tcp (v6)                DENY IN     Anywhere (v6)              # Deny incoming unencrypted HTTP
+[ 7] 443/tcp (v6)               ALLOW IN    Anywhere (v6)              # Allow incoming secure HTTPS
+[ 8] Anywhere (v6) on lo        ALLOW IN    Anywhere (v6)              # Allow all loopback traffic
 ```
 
 ### Empirical Traffic Test Result
-When attempting a raw HTTP connection to port 80:
+When attempting an HTTP connection to denied port 80:
 ```text
-$ curl -m 3 http://localhost:80
-curl: (28) Failed to connect to localhost port 80: Connection timed out
+gyand@LUCIFER:/mnt/e/internship/OIBSIP/CyberSecurity-Task2-UFW$ curl -m 3 http://localhost:80
+curl: (7) Failed to connect to localhost port 80 after 0 ms: Could not connect to server
 ```
-The packet was silently dropped by the netfilter firewall table, validating that the ingress block rule functions as specified.
+The packet was actively rejected/dropped by the netfilter firewall table, validating that the ingress block rule functions as specified.
 
 ## 9. Security Analysis
 
