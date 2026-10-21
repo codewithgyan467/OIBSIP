@@ -1,9 +1,8 @@
-# Comprehensive Research Report: Common Network Security Threats
+# Research Report: Common Network Security Threats
 
-**Author**: Security Analyst Intern  
-**Track**: Oasis Infobyte Cybersecurity Internship (OIBSIP)  
-**Deliverable**: Task 4 Research Report  
-**Target Audience**: Systems Administrators, Network Engineers, and Junior Security Analysts  
+**Author**: Gyandeep Duwarah  
+**Internship**: Oasis Infobyte Cybersecurity Internship (OIBSIP)  
+**Task**: Task 4 - Common Network Security Threats  
 
 ---
 

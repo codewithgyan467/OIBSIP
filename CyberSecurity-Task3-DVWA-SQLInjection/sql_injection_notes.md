@@ -1,9 +1,9 @@
-# SQL Injection Lab Notes & Technical Remediation
+# Task 3: SQL Injection Lab Notes & Remediation
 
-**Track**: OIBSIP Cyber Security — Security Analyst  
-**Lab Target**: Damn Vulnerable Web Application (DVWA) v1.10* (Localhost Environment)  
-**Security Level**: Low  
-**Vulnerability Module**: SQL Injection (`/vulnerabilities/sqli/`)  
+**Author**: Gyandeep Duwarah  
+**Internship**: Oasis Infobyte (OIBSIP) — Cybersecurity Track  
+**Lab Target**: Damn Vulnerable Web Application (DVWA) - Low Security  
+**Module**: SQL Injection (`/vulnerabilities/sqli/`)  
 
 ---
 

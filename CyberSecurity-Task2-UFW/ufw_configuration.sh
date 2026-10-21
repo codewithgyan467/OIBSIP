@@ -2,10 +2,8 @@
 # ==============================================================================
 # Script Name   : ufw_configuration.sh
 # Track         : OIBSIP Cyber Security - Task 2: Host Firewall Configuration
-# Description   : Automates production-grade hardening and rule configuration
-#                 for Ubuntu's Uncomplicated Firewall (UFW).
-# Author        : Security Analyst Intern
-# Safe Execution: Requires root/sudo privileges. Runs in local VM or Linux host.
+# Author        : Gyandeep Duwarah
+# Description   : Setup and configuration script for UFW firewall
 # ==============================================================================
 
 set -euo pipefail
